@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "eventos",
+  "info": {
+    "singularName": "evento",
+    "pluralName": "eventos",
+    "displayName": "Evento"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "descripcion": {
+      "type": "text"
+    },
+    "fecha": {
+      "type": "datetime",
+      "required": true
+    },
+    "ciudades": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::ciudad.ciudad",
+      "inversedBy": "eventos"
+    },
+    "tiposTicket": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tipo-ticket.tipo-ticket",
+      "mappedBy": "evento"
+    }
+  }
+}

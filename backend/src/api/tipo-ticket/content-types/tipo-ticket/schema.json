@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tipos_ticket",
+  "info": {
+    "singularName": "tipo-ticket",
+    "pluralName": "tipos-ticket",
+    "displayName": "TipoTicket"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "precio": {
+      "type": "decimal",
+      "required": true
+    },
+    "cantidad": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "evento": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::evento.evento",
+      "inversedBy": "tiposTicket"
+    }
+  }
+}
